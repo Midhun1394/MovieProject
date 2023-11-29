@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block body %}
+  <div class="container mt-3">
+    <div class="row align-items-center">
+      <!-- Center the content horizontally and vertically -->
+
+      <div class="col-md-6">
+        <!-- Adjusted column size for the very enlarged image -->
+        <img src="{{ movie.img.url }}" class="img-fluid rounded" alt="{{ movie.name }}" style="width: 100%;">
+      </div>
+
+      <div class="col-md-6">
+        <!-- Adjusted column size for the details and buttons -->
+        <h1>{{ movie.name }}</h1>
+        <p class="lead">{{ movie.desc }}</p>
+        <p class="lead">Year: {{ movie.year }}</p>
+        <a class="btn btn-warning btn-lg" href="{% url 'movieapp:update' movie.id %}">Update</a>
+        <a class="btn btn-danger btn-lg" href="{% url 'movieapp:delete' movie.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}
